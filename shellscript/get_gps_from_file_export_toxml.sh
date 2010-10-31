@@ -12,6 +12,7 @@ do
         echo "$LINE"
 
         GPRMC=`echo $LINE |grep GPRMC| cut -d',' -f4,5,6,7`
+        KNOT_SPEED=`echo $LINE |grep GPRMC| cut -d',' -f8`
 
         GPS_DAT_CHAR_COUNT=`echo $GPRMC | wc -c`
 
@@ -49,7 +50,9 @@ do
         LONG_FLOAT=`echo "scale=7;$LONG_DEG + ($LONG_MIN/60.00)" | bc`
         echo LONG_FLOAT = $LONG_FLOAT
 
-        echo " <marker lat=\"-$LAT_FLOAT\" lng=\"$LONG_FLOAT\" html=\"Marker $marker_count\"  label=\"Marker $marker_count\" />" >> $xml_file
+        SPEED_KMPH=`echo "scale=7;$KNOT_SPEED * 1.85200" | bc`
+
+        echo " <marker lat=\"-$LAT_FLOAT\" lng=\"$LONG_FLOAT\" html=\"Speed: $SPEED_KMPH\"  label=\"Marker $marker_count\" />" >> $xml_file
 
 
 done
