@@ -1,0 +1,9 @@
+<markers>
+ <marker lat="-43.5344550" lng="172.5847233" html="Marker 1"  label="Marker 1" />
+ <marker lat="-43.5344566" lng="172.5847233" html="Marker 2"  label="Marker 2" />
+ <marker lat="-43.5344566" lng="172.5847216" html="Marker 3"  label="Marker 3" />
+ <marker lat="-43.5344566" lng="172.5847216" html="Marker 4"  label="Marker 4" />
+ <marker lat="-43.5344566" lng="172.5847216" html="Marker 5"  label="Marker 5" />
+ <marker lat="-43.5344583" lng="172.5847233" html="Marker 6"  label="Marker 6" />
+ <marker lat="-43.5344600" lng="172.5847216" html="Marker 7"  label="Marker 7" />
+</markers>
