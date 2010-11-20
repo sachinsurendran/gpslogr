@@ -1,6 +1,6 @@
 xml_file=../javascript/points.xml
-#gps_data=/tmp/gpsdat
-gps_data=./gpsdata_100k.dat
+gps_data=/tmp/gpsdat
+#gps_data=./gpsdata_100k.dat
 run_forever=1
 marker_count=0
 
