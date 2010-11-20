@@ -1,5 +1,6 @@
-xml_file=points.xml
-gps_data=/tmp/gpsdat
+xml_file=../javascript/points.xml
+#gps_data=/tmp/gpsdat
+gps_data=./gpsdata_100k.dat
 run_forever=1
 marker_count=0
 
@@ -52,7 +53,20 @@ do
 
         SPEED_KMPH=`echo "scale=7;$KNOT_SPEED * 1.85200" | bc`
 
-        echo " <marker lat=\"-$LAT_FLOAT\" lng=\"$LONG_FLOAT\" html=\"Speed: $SPEED_KMPH\"  label=\"Marker $marker_count\" />" >> $xml_file
+        echo "SPEED FLOAT = $SPEED_KMPH"
+
+        SPEED_INT=`echo $SPEED_KMPH | cut -d'.' -f1`
+
+        echo "SPEED INT = $SPEED_INT"
+
+        if [ "$SPEED_INT" -ge "80" ]
+        then
+            color="ff0000"
+        else
+            color="336600"
+        fi
+
+        echo " <marker lat=\"-$LAT_FLOAT\" lng=\"$LONG_FLOAT\" html=\"Speed: $SPEED_KMPH\"  label=\"Marker $marker_count\" color=\"#$color\"/>" >> $xml_file
 
 
 done
