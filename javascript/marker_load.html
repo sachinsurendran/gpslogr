@@ -10,7 +10,7 @@
     <table border=1> 
       <tr> 
         <td> 
-           <div id="map" style="width: 550px; height: 450px"></div> 
+           <div id="map" style="width: 1550px; height: 900px"></div> 
         </td> 
         <td width = 150 valign="top" style="text-decoration: underline; color: #4444ff;"> 
            <div id="side_bar"></div> 
@@ -78,8 +78,9 @@
                 var point = new GLatLng(lat,lng);
                 var html = markers[i].getAttribute("html");
                 var label = markers[i].getAttribute("label");
+                var color = markers[i].getAttribute("color");
                 // create the marker
-                var marker = createMarker(point,label,html);
+                //var marker = createMarker(point,label,html);
                 //create the polyline
                 if (i > 1)
                 {
@@ -87,18 +88,18 @@
                     var polyline = new GPolyline([
                             new GLatLng(lat, lng),
                             new GLatLng( parseFloat(markers[i-1].getAttribute("lat")), parseFloat(markers[i-1].getAttribute("lng")))
-                            ], "#0000ff", 4, 0.2, polyOptions);
+                            ], color, 4, 0.5, polyOptions);
                     map.addOverlay(polyline);
                 }
-                map.addOverlay(marker);
+                //map.addOverlay(marker);
 
                 }
       }
 
       var xmlDoc = document.implementation.createDocument("", "", null);
       xmlDoc.onload = loadxml_mine;
-      xmlDoc.load("example.xml");
-      //var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+      xmlDoc.load("points.xml");
+      var markers = xmlDoc.documentElement.getElementsByTagName("marker");
  
       // Read the data from example.xml
 
