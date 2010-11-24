@@ -7,6 +7,17 @@ marker_count=0
 #Create the template for xml file
 echo "<markers>" > $xml_file
 
+if [ ! -f $gps_data ]
+then
+    echo ERROR: file $gps_data does not exit;
+    exit
+else
+    echo File: $gps_data found! Processing the file data...;
+    echo .................
+
+fi
+
+
 
 cat $gps_data | while read LINE
 do
